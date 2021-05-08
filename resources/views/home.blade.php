@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Welcome  {{  Auth::user()->name }}
-                    <a href="{{ route('upload')  }}"  class="btn btn-primary btn-sm" style="float: right">Add Image(s)</a>
+                    <a href="{{ route('get-upload')  }}"  class="btn btn-primary btn-sm" style="float: right">Add Image(s)</a>
                 </div>
 
                 <div class="card-body">
