@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/upload','FileController@getUpload')->name('get-upload');
-Route::post('/upload','FileController@upload')->name('post-upload');
-Route::get('/view/{public_id}','FileController@view')->name('view');
+Route::group(['middleware'=>'auth'],function (){
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/upload','FileController@getUpload')->name('get-upload');
+    Route::post('/upload','FileController@upload')->name('post-upload');
+    Route::get('/view/{public_id}','FileController@view')->name('view');
+    Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('signout');
+
+});
