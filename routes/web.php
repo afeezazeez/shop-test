@@ -21,3 +21,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/upload','FileController@getUpload')->name('get-upload');
 Route::post('/upload','FileController@upload')->name('post-upload');
+Route::get('/view/{public_id}','FileController@view')->name('view');

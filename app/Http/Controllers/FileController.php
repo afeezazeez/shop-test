@@ -47,5 +47,10 @@ class FileController extends Controller
             return redirect()->back();
     }
 
+    public function view($public_id){
+        $image=Image::where('public_id',$public_id)->first();
+        return view('show',compact('image'));
+    }
+
 
 }
