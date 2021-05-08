@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FileUploadRequest;
+use App\Models\Image;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -11,11 +13,10 @@ class FileController extends Controller
         return view('upload');
     }
 
-    public function upload(Request $request){
-        $files= $request->file('file');
-//        foreach ($files as $file){
-//            echo $file->getClientOriginalExtension() . "<br>";
-//        }
+    public function upload(FileUploadRequest $request){
+
+        return $request;
+        $file= $request->file('file');
 
     }
 }

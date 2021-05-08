@@ -7,6 +7,23 @@
                 <div class="card">
                     <div class="card-header">
                       <h3>Upload Image(s)</h3>
+                        @if (count($errors) > 0)
+
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+
+                                </ul>
+
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        @endif
                     </div>
 
                     <div class="card-body">
@@ -18,12 +35,19 @@
 
                                 <div class="col-md-6">
                                     <input id="tag" type="text" class="form-control @error('tag') is-invalid @enderror" name="tag" value="{{ old('tag') }}" required autocomplete="tag" autofocus placeholder="Tag will show for image when it is viewed">
+                                </div>
+                            </div>
 
-                                    @error('tag')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                            <div class="form-group row">
+                                <label for="permission" class="col-md-4 col-form-label text-md-right">{{ __('Permission') }}</label>
+
+                                <div class="col-md-6">
+                                    <select name="permission" id="permission" class="form-control" required>
+                                        <option value="">Choose permission type</option>
+                                        <option value="public">Public</option>
+                                        <option value="private">Private</option>
+                                    </select>
+
                                 </div>
                             </div>
 
@@ -32,12 +56,6 @@
 
                                 <div class="col-md-6">
                                     <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file[]" required multiple>
-
-                                    @error('file')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
                                <div class="form-group row mb-0">

@@ -24,7 +24,10 @@ class FileUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tag'=>'required',
+            'permission'=>'required',
+            'file' => 'required',
+            'file.*' => 'mimes:jpeg,jpg,png'
         ];
     }
 }
