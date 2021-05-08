@@ -22,7 +22,9 @@ class BulkImageUploadJob implements ShouldQueue
      */
     public function __construct($files)
     {
-        $this->files=$files;
+
+        //$this->files=$files;
+
     }
 
     /**
