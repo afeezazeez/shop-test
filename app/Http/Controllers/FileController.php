@@ -48,8 +48,24 @@ class FileController extends Controller
     }
 
     public function view($public_id){
+        if($this->isPermitted($public_id)){
+            $image=Image::where('public_id',$public_id)->first();
+            return view('show',compact('image'));
+        }
+        else{
+            return view('forbidden');
+        }
+
+
+
+    }
+
+    public function isPermitted($public_id){
         $image=Image::where('public_id',$public_id)->first();
-        return view('show',compact('image'));
+        if ($image->user_id===Auth::user()->id || $image->permission==='public'){
+            return true;
+        }
+        return false;
     }
 
 
