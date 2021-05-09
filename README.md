@@ -61,7 +61,7 @@ Install the dependencies and start the server
 
 ```console
 $ composer install
-$ php artisan key:generateZZZZZ
+$ php artisan key:generate
 $ php artisan migrate
 $ php artisan serve
 ```
