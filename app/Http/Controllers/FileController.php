@@ -32,7 +32,7 @@ class FileController extends Controller
             return redirect()->back();
         }
 
-        $files =  serialize($request->file('file'));
+        $files =  $request->file('file');
         //BulkImageUploadJob::dispatch($files);
              foreach ($files as $file){
                  $public_id=substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 9).rand(1,100);

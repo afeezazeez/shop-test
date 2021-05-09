@@ -9,10 +9,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-
-class BulkImageUploadJob implements ShouldQueue,Serialize
+class BulkImageUploadJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Serializable;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $images;
 
