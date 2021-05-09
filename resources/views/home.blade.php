@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">
                     Welcome  {{  Auth::user()->name }}
-                    <a href="{{ route('get-upload')  }}"  class="btn btn-primary btn-sm" style="float: right">Add Image(s)</a>
+                    <a href="{{ route('get-upload')  }}"  class="btn btn-primary btn-sm" style="float: right">Upload Image(s)</a>
                 </div>
 
                 <div class="card-body">

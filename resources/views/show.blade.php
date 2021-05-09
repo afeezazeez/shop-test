@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{$image->fetchFirstMedia()->file_url}}"><i class="fa fa-download fa-2x" style="float: right;color: black"></i></a>
+                        <a href="#" download="{{$image->fetchFirstMedia()->file_url}}"><i class="fa fa-download fa-2x" style="float: right;color: black"></i></a>
                         <p>   <strong>Image Tag </strong>:  {{  $image->tag }}</p>
                         <p><strong>Status </strong>: {{$image->permission}}</p>
 

@@ -61,4 +61,19 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
+    public function test_a_user_can_logout(){
+        $user= \App\Models\User::factory()->create();
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => "password",
+        ]);
+        $response->assertRedirect('/home');
+        $this->assertAuthenticatedAs($user);
+
+        $response = $this->actingAs($user)->get('/logout');
+        $response->assertRedirect('/login');
+
+    }
+
 }
