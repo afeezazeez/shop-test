@@ -38,7 +38,7 @@ $ cp .env.example .env
 
 ### Environment
 Configure environment variables in `.env` for dev environment based on your MYSQL database configuration and 
-Cloudinary credentials
+Cloudinary credentials(to get this, visit https://cloudinary.com/console)
 
 ```  
 DB_CONNECTION=<YOUR_MYSQL_TYPE>
