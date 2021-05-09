@@ -31,8 +31,9 @@ class FileController extends Controller
             session()->flash('success','Image uploaded to repository successfully');
             return redirect()->back();
         }
-        $files = $request->file('file');
-         //BulkImageUploadJob::dispatch($files);
+
+        $files =  serialize($request->file('file'));
+        //BulkImageUploadJob::dispatch($files);
              foreach ($files as $file){
                  $public_id=substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 9).rand(1,100);
                  $image=Image::create([

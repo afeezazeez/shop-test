@@ -33,7 +33,7 @@
                                 </thead>
                                 @foreach(Auth::user()->images()->get() as $key => $image)
                                     <tr>
-                                        <td>{{$key}}</td>
+                                        <td>{{$key+1}}</td>
                                         <td>{{$image->tag}}</td>
                                         <td>{{$image->permission}}</td>
                                         <td>

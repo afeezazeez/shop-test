@@ -9,31 +9,27 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class BulkImageUploadJob implements ShouldQueue
+
+class BulkImageUploadJob implements ShouldQueue,Serialize
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Serializable;
 
-    protected $files;
+    private $images;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct($files)
+
+
+    public function __construct($array )
     {
 
-        //$this->files=$files;
+        $this->images=$array;
 
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
+
     public function handle()
     {
-        //dd($this->files);
+        dd($this->files);
     }
+
 }
+
